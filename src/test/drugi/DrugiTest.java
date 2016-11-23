@@ -36,7 +36,7 @@ public class DrugiTest {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		System.out.println("");
+		System.out.println("nesto");
 	}
 	
 	@AfterClass
