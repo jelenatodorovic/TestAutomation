@@ -12,6 +12,7 @@ public class HomePage extends Page{
 	
 	public HomePage(WebDriver driver) {
 		super(driver);
+		System.out.println("Open Home Page");
 		PageFactory.initElements(driver, this);
 		// TODO Auto-generated constructor stub
 	}

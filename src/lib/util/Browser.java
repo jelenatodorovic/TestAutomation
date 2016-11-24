@@ -5,11 +5,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Browser {
 
+	/*
+	 * Open Firefox Browser
+	 * @return WebDriver
+	 */
 	public static WebDriver openBrowser(String url) {
-		WebDriver d = new FirefoxDriver();
-		d.manage().window().maximize();
-		d.get(url);
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get(url);
 		System.out.println("Opening " + url + "page");
-		return d;
+		return driver;
 	}
 }
