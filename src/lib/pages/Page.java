@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Page {
 	
-	private WebDriver _driver;
+	protected WebDriver _driver;
 	//private String url;
 	
 	//================= Mapping web elements ===============
