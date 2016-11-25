@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="test.drugi.DrugiTest">
+      <class name="test.registration.TestRegistrationRequiredInputFields">
         <methods>
-          <include name="setUp"/>
           <include name="test"/>
+          <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- test.drugi.DrugiTest -->
+      </class> <!-- test.registration.TestRegistrationRequiredInputFields -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

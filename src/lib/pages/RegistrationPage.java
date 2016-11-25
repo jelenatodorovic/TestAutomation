@@ -1,7 +1,6 @@
 package lib.pages;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -9,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends Page{
 	
@@ -37,14 +37,23 @@ public class RegistrationPage extends Page{
 	@FindBy(xpath = "id('pie_register')/li[3]/div/div[1]/input[3]")
 	private WebElement hobbyCricket;
 	
+	@FindBy(id = "dropdown_7")
+	private WebElement selectCountry;
+	
 	@FindBy(id = "phone_9")
 	private WebElement phoneNumberInput;
 	
 	@FindBy(id = "username")
 	private WebElement usernameInput;
 	
-	@FindBy(id = "password")
+	@FindBy(id = "email_1")
+	private WebElement emailInput;
+	
+	@FindBy(id = "password_2")
 	private WebElement passwordInput;
+	
+	@FindBy(id = "confirm_password_password_2")
+	private WebElement confirmPasswordInput;
 	
 	private String single = "Single";
 	private String married = "Married";
@@ -67,7 +76,21 @@ public class RegistrationPage extends Page{
 	public void sendKeysToLastNameField(String lastname) {
 		lastNameInput.sendKeys(lastname);
 	}
-	
+	public void sendKeysToPhoneNumberInput(String phoneNumber) {
+		phoneNumberInput.sendKeys(phoneNumber);
+	}
+	public void sendKeysToUsernameField(String username) {
+		usernameInput.sendKeys(username);
+	}
+	public void sendKeysToEmailInput(String email) {
+		emailInput.sendKeys(email);
+	}
+	public void sendKeysToPasswordFiled(String password) {
+		passwordInput.sendKeys(password);
+	}
+	public void sendKeysToConfirmPasswordField(String confirmPassword) {
+		confirmPasswordInput.sendKeys(confirmPassword);
+	}
 	/*
 	 * selectRadio Method
 	 */
@@ -91,13 +114,22 @@ public class RegistrationPage extends Page{
 	/*
 	 * selectCheckbox method
 	 */
-	public void selectHobbyReading() {
+	public void selectCheckboxHobbyReading(boolean bValue) {
 		
 	}
-	public void selectHobbyDancing() {
+	public void selectCheckboxHobbyDancing(boolean bValue) {
 		
 	}
-	public void selectHobbyCricket() {
+	public void selectCheckboxHobbyCricket(boolean bValue) {
 		
 	}
+	
+	/*
+	 * selectItem from list method
+	 */
+	public void selectCountry(String country) {
+		Select select = new Select(selectCountry);
+		select.selectByValue(country);
+	}
+	
 }
