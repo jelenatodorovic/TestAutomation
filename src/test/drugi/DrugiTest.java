@@ -33,10 +33,10 @@ public class DrugiTest {
 	
 	@BeforeClass
 	public void setUp()	{
-	
+	//
 		// Open Browser
 		driver = Browser.openBrowser(Properties.URL);
-		System.out.println("Before: "+  driver);
+		//System.out.println("Before: "+  driver);
 	}
 	
 	@Test

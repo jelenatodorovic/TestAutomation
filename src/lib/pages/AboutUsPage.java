@@ -9,7 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class AboutUsPage extends Page{
 
 	//============ Mapping web elements ===========
-	@FindBy()
+	//@FindBy(css = "article#post-156 header h1")
+	@FindBy(xpath = "id('post-156')/header/h1")
 	private WebElement aboutAsHeader;
 	
 	
@@ -19,7 +20,7 @@ public class AboutUsPage extends Page{
 	public AboutUsPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(driver, this);
+		
 	}
 
 	/*

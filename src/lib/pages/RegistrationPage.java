@@ -4,6 +4,7 @@ package lib.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,6 +56,12 @@ public class RegistrationPage extends Page{
 	@FindBy(id = "confirm_password_password_2")
 	private WebElement confirmPasswordInput;
 	
+	@FindBy(xpath = "id('pie_register')/li[14]/div/input")
+	private WebElement submitButton;
+	
+	@FindBy(xpath = "id('post-49')/div/p")
+	private WebElement successRegistrationMsg;
+	
 	private String single = "Single";
 	private String married = "Married";
 	private String divorced = "Divorced";
@@ -63,7 +70,7 @@ public class RegistrationPage extends Page{
 	public RegistrationPage(WebDriver driver) {
 		super(driver);
 		System.out.println("Open Registration Page");
-		PageFactory.initElements(driver, this);
+		//PageFactory.initElements(driver, this);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -115,13 +122,19 @@ public class RegistrationPage extends Page{
 	 * selectCheckbox method
 	 */
 	public void selectCheckboxHobbyReading(boolean bValue) {
-		
+		if(bValue != hobbyReading.isSelected()) {
+			hobbyReading.click();
+		}
 	}
-	public void selectCheckboxHobbyDancing(boolean bValue) {
-		
+	public void selectCheckboxHobbyDance(boolean bValue) {
+		if(bValue != hobbyDancing.isSelected()) {
+			hobbyDancing.click();
+		}
 	}
 	public void selectCheckboxHobbyCricket(boolean bValue) {
-		
+		if(bValue != hobbyCricket.isSelected()) {
+			hobbyCricket.click();
+		}
 	}
 	
 	/*
@@ -132,4 +145,22 @@ public class RegistrationPage extends Page{
 		select.selectByValue(country);
 	}
 	
+	/*
+	 * clickOn methods
+	 */
+	public void clickOnSubmitButton() {
+		submitButton.click();
+	}
+	
+	/*
+	 * isDisplayed methods
+	 */
+	
+	public boolean isDisplayedSuccessRegistrationMsg() {
+		try {
+			return successRegistrationMsg.isDisplayed();
+		} catch(NoSuchElementException e) {
+			return false;
+		}
+	}
 }
