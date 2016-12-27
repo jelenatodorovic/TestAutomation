@@ -8,12 +8,38 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+/*
+ * Every page class is a representation of single web page of the application.
+ * Constructor will create object of that page with all mapped elements.
+ */
 public class RegistrationPage extends Page{
 	
 	//================ mapping web elements ================
+	/*
+	 * For locating (mapping web elements) is used @FindBy Selenium annotation.
+	 * @FindBy can use different ways to locate web element like: id, xpath, css, className..
+	 * After @findBy WebElement object must be defined
+	 * 
+	 * 
+	 * WebElement object is used for executing actions on a web page.
+	 * Common methods that are used are:
+	 * 		getText()
+	 * 		sendKeys(stringValue)
+	 * 		click()
+	 * 		isDisplayed()
+	 * 		isSelected()
+	 * 		clear() ..
+	 * 
+	 * If webElement is not found on page, NoSuchElementException will be thrown.
+	 * 
+	 * 		
+	 */
+	
+	/*
+	 * 
+	 */
 	@FindBy(xpath = "id('pie_register')/li[1]/div[1]/label")
 	private WebElement firstNameLabel;
 	
@@ -61,6 +87,9 @@ public class RegistrationPage extends Page{
 	
 	@FindBy(xpath = "id('post-49')/div/p")
 	private WebElement successRegistrationMsg;
+	
+	@FindBy(xpath = "id('pie_register')/li[6]/div/div/span")
+	private WebElement phoneNumberErrorMsg;
 	
 	private String single = "Single";
 	private String married = "Married";
@@ -158,9 +187,25 @@ public class RegistrationPage extends Page{
 	
 	public boolean isDisplayedSuccessRegistrationMsg() {
 		try {
-			return successRegistrationMsg.isDisplayed();
+			return  successRegistrationMsg.isDisplayed();
 		} catch(NoSuchElementException e) {
 			return false;
 		}
+	}
+	
+	public String getTextSuccessRegistrationMsg() {
+		return successRegistrationMsg.getText();
+	}
+	
+	public boolean isDisplayedPhoneNumberErrorMsg() {
+		try {
+			return phoneNumberErrorMsg.isDisplayed();
+		} catch(NoSuchElementException e) {
+			return false;
+		}
+	}
+	
+	public void clearPhoneNumberInputField() {
+		phoneNumberInput.clear();
 	}
 }

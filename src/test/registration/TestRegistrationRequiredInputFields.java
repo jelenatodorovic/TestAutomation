@@ -60,8 +60,8 @@ public class TestRegistrationRequiredInputFields {
 		registrationPage.selectCountry("Laos");
 		
 		registrationPage.sendKeysToPhoneNumberInput("00381641234567");
-		registrationPage.sendKeysToUsernameField("slsl");
-		registrationPage.sendKeysToEmailInput("jelena@tod.com");
+		registrationPage.sendKeysToUsernameField("jelenaTodorovic");
+		registrationPage.sendKeysToEmailInput("jelena@todorovic.com");
 		
 		registrationPage.sendKeysToPasswordFiled("Matematicki123!*");
 		registrationPage.sendKeysToConfirmPasswordField("Matematicki123!*");
@@ -71,6 +71,7 @@ public class TestRegistrationRequiredInputFields {
 		registrationPage.clickOnSubmitButton();
 		Sleeper.sleepTightInSeconds(4);
 		Assert.assertEquals(registrationPage.isDisplayedSuccessRegistrationMsg(), true);
+		Assert.assertEquals(registrationPage.getTextSuccessRegistrationMsg(), "Thank you for your registration" );
 	}
 	
 	@AfterClass

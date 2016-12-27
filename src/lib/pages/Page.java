@@ -7,7 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Page {
-	
+	/*
+	 * Page class is super class that all other page classes extends.
+	 * Page class contains web elements that are always present on web application, 
+	 * no matter which page is presented in the center.
+	 * 
+	 * Every public method from page class will be inherited in subclasses,
+	 * so all web elements from page class can be used in all subclasses.
+	 */
 	protected WebDriver _driver;
 	//private String url;
 	
